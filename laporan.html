@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tracking Pengiriman</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/Logo-UT_FHD.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  <script src="js/dataBahanAjar.js"></script>
+
+</head>
+<body>
+
+<div id="trackingApp" class="container">
+
+  <header class="navbar">
+    <div class="logo-wrap">
+      <div class="icon">
+        <iconify-icon icon="iconamoon:delivery-fast-duotone"></iconify-icon>
+      </div>
+      <span>Tracking Pengiriman</span>
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="stock.html">Daftar Bahan Ajar</a>
+      <a href="tracking.html">Daftar Tracking</a>
+      <a href="laporan.html" class="active">Tracking Pengiriman</a>
+    </nav>
+
+    <button onclick="logout()" class="btn-red">
+      Logout
+      <iconify-icon class="btn-icon" icon="line-md:logout"></iconify-icon>
+    </button>
+  </header>
+
+    <div class="card">
+    <!-- INPUT RESI -->
+    <input
+      type="text"
+      v-model="resi"
+      placeholder="Masukkan Nomor DO">
+    <div class="action-row">
+      
+      <button type="button"@click="cariTracking">
+        Cari
+      </button>
+      <button
+        type="button"
+        class="btn-third"
+        onclick="location.href='tracking.html'">
+        Kembali
+      </button>
+
+    </div>
+
+    <!-- HASIL TRACKING -->
+    <div v-if="hasil" class="card" id="hasil">
+
+      <h3>{{ hasil.nama }}</h3>
+
+      <p><b>No DO:</b> {{ hasil.noDO }}</p>
+      <p><b>NIM:</b> {{ hasil.nim }}</p>
+      <p><b>Status:</b> {{ hasil.status }}</p>
+      <p><b>Ekspedisi:</b> {{ hasil.ekspedisi }}</p>
+      <p><b>Tanggal:</b> {{ hasil.tanggalKirim }}</p>
+
+      <p>
+        <b>Total:</b>
+        Rp {{ hasil.total.toLocaleString("id-ID") }}
+      </p>
+
+      <hr style="margin:20px 0;">
+
+      <!-- TIMELINE -->
+  <h4>Riwayat Pengiriman</h4>
+
+  <div class="timeline">
+
+  <div class="timeline-item" v-for="(step,index) in hasil.perjalanan" :key="index">
+
+    <div class="track-time">
+      {{ step.waktu }}
+    </div>
+
+    <div class="track-desc">
+      {{ step.keterangan }}
+    </div>
+
+  </div>
+
+</div>
+
+    <p v-if="notFound" style="color:red; margin-top:15px;">
+      Data tidak ditemukan
+    </p>
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/tracking-app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Login SITTA</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/Logo-UT_FHD.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="login-bg">
+
+<div class="container login-container">
+  <div class="card login-card">
+    
+    <img src="assets/ut.png.webp" class="logo">
+      <h2>Selamat Datang</h2>
+        <p class="subtitle">Silakan login ke SITTA</p>
+
+    <input type="email" id="email" placeholder="admin@ut.ac.id">
+    <input type="password" id="password" placeholder="admin123">
+    <button class="nth-1" type="button" onclick="login()">Login</button>
+      
+    <div class="login-links">
+      <a href="#" onclick="lupaPassword()">Lupa Password?</a>
+      <a href="#" onclick="daftarAkun()">Daftar akun</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/stock-apps.js"></script>
+<script src="js/data.js"></script>
+</body>
+</html>

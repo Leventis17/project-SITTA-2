@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Daftar Tracking</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/Logo-UT_FHD.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  <script src="js/dataBahanAjar.js"></script>
+
+</head>
+<body>
+
+<div id="trackingApp" class="container">
+
+  <header class="navbar">
+    <div class="logo-wrap">
+      <div class="icon">
+        <iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+      </div>
+      <span>Data Tracking</span>
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="stock.html">Daftar Bahan Ajar</a>
+      <a href="tracking.html" class="active">Daftar Tracking</a>
+      <a href="laporan.html">Tracking Pengiriman</a>
+    </nav>
+
+    <button onclick="logout()" class="btn-red">
+      Logout
+      <iconify-icon class="btn-icon" icon="line-md:logout"></iconify-icon>
+    </button>
+  </header>
+
+  <div class="card">
+
+    <form @submit.prevent="addTracking">
+
+      <div class="form-grid">
+
+        <div>
+          <input v-model="form.nim" placeholder="Masukkan NIM" required>
+          <input v-model="form.nama" placeholder="Masukkan Nama" required>
+
+          <select v-model="form.ekspedisi">
+            <option v-for="item in pengirimanList" :value="item.nama">
+              {{ item.nama }}
+            </option>
+          </select>
+        </div>
+
+        <div>
+          <select v-model="form.paket">
+            <option disabled value="">Pilih Paket</option>
+            <option v-for="p in paket" :value="p.kode">
+              {{ p.kode }} - {{ p.nama }}
+            </option>
+          </select>
+
+          <input type="text" v-model="form.tanggalKirim" placeholder="15-05-2026">
+          <input :value="'Rp ' + totalHarga.toLocaleString('id-ID')" readonly placeholder="Total Harga">
+        </div>
+
+      </div>
+
+      <div v-if="selectedPaket" class="card">
+        <h4 class="paket-txt">Isi Paket:</h4>
+        <ul class="paket">
+          <li v-for="item in selectedPaket.isi">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="action-row">
+        <button type="submit">Tambah DO</button>
+
+        <button
+          type="button"
+          class="btn"
+          @click="resetTracking"
+        >
+          Reset
+        </button>
+
+        <button
+          type="button"
+          class="btn-third"
+          onclick="location.href='stock.html'"
+        >
+          Kembali
+        </button>
+
+        <button
+          type="button"
+          class="btn-secondary"
+          onclick="location.href='laporan.html'"
+        >
+          Lanjut
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="card">
+    <h3>Daftar Tracking</h3>
+      <div class="tracking-row" v-for="(item,key) in tracking" :key="key">
+
+      <div class="tracking-badge">
+        <small>No DO</small>
+        <strong>{{ key }}</strong>
+      </div>
+
+      <div class="tracking-item">
+        <small>Nama</small>
+        <span>{{ item.nama }}</span>
+      </div>
+
+      <div class="tracking-item">
+        <small>NIM</small>
+        <span>{{ item.nim }}</span>
+      </div>
+
+      <div class="tracking-item status">
+        <small>Status</small>
+        <span>{{ item.status }}</span>
+      </div>
+
+      <div class="tracking-item">
+        <small>Ekspedisi</small>
+        <span>{{ item.ekspedisi }}</span>
+      </div>
+
+      <div class="tracking-item">
+        <small>Tanggal</small>
+        <span>{{ item.tanggalKirim }}</span>
+      </div>
+
+      <div class="tracking-item total">
+        <small>Total</small>
+        <span>
+          Rp {{ item.total.toLocaleString("id-ID") }}
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="js/tracking-app.js"></script>
+<script src="js/data.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Stock Bahan Ajar</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/Logo-UT_FHD.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  <script src="js/dataBahanAjar.js"></script>
+
+</head>
+<body>
+
+<div id="app" class="container">  
+
+<header class="navbar">
+    <div class="logo-wrap">
+      <div class="icon">
+        <iconify-icon icon="solar:book-2-bold-duotone"></iconify-icon>
+      </div>
+      <!-- <img src="assets/Logo-UT_FHD.png" class="logo"> -->
+      <span>Data Bahan Ajar</span>
+      
+    </div>
+
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="stock.html" class="active">Daftar Bahan Ajar</a>
+      <a href="tracking.html">Daftar Tracking</a>
+      <a href="laporan.html">Tracking Pengiriman</a>
+    </nav>
+
+    <button onclick="logout()" class="btn-red">Logout
+      <iconify-icon class="btn-icon" icon="line-md:logout"></iconify-icon>
+    </button>
+  </header>
+
+  <div class="card">
+  
+    <div class="toolbar">
+
+      <select v-model="selectedUpbjj">
+        <option value="">Semua UT</option>
+        <option v-for="u in upbjjList">
+          {{ u }}
+        </option>
+      </select>
+
+      <select v-model="selectedKategori">
+        <option value="">Semua Kategori</option>
+        <option v-for="k in kategoriList">
+          {{ k }}
+        </option>
+      </select>
+
+      <select v-model="sortBy">
+        <option value="judul">Sort Judul</option>
+        <option value="qty">Sort Stok</option>
+        <option value="harga">Sort Harga</option>
+      </select>
+
+      <label class="label">
+        <input type="checkbox"
+               v-model="reorderOnly">
+        Reorder Only
+      </label>
+
+      <button type="button" class="btn-third"  @click="resetFilter">Reset</button>
+
+    </div>
+
+    <!-- GRID DATA -->
+    <div class="grid-buku">
+
+      <div class="card-buku"
+           v-for="item in filteredStock">
+
+        <div class="info">
+
+          <h4>{{ item.judul }}</h4>
+
+          <p>{{ item.kode }}</p>
+          <p>UT: {{ item.upbjj }}</p>
+          <p>Lokasi Rak: {{ item.lokasiRak }}</p>
+          <p>Harga: Rp {{ formatHarga(item.harga) }}</p>
+          <p>Stok: {{ item.qty }}</p>
+
+          <span :class="statusClass(item)">
+            {{ statusText(item) }}
+          </span>
+
+          <div v-html="item.catatanHTML"></div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- FORM -->
+  <div class="card">
+
+    <h3>Tambah Data</h3>
+
+    <form @submit.prevent="addItem">
+
+      <div class="form-grid">
+
+        <input v-model="form.kode"
+               placeholder="Kode"
+               required>
+
+        <input v-model="form.judul"
+               placeholder="Judul"
+               required>
+
+        <input v-model.number="form.harga"
+               placeholder="Harga"
+               required>
+
+        <input v-model.number="form.qty"
+               placeholder="Stok"
+               required>
+
+        <select v-model="form.upbjj">
+          <option v-for="u in upbjjList">
+            {{ u }}
+          </option>
+        </select>
+
+        <input v-model="form.lokasiRak"
+               placeholder="Lokasi Rak">
+
+      </div>
+
+      <div class="action-row">
+
+        <button>
+          Tambah
+        </button>
+        <button
+          type="button"
+          class="btn-third"
+          onclick="location.href='dashboard.html'"
+        >
+          Kembali
+        </button>
+        <button type="button"
+                class="btn-secondary"
+                onclick="location.href='tracking.html'">
+          Lanjut
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="js/stock-apps.js"></script>
+<script src="js/data.js"></script>
+</body>
+</html>

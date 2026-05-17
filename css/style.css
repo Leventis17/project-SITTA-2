@@ -1,0 +1,743 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: "Lexend", sans-serif;
+}
+
+body{
+  background:url('../assets/ut_bg_fluid.png') no-repeat center center fixed;
+  background-size:cover;
+  color:#333;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:10px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card{
+  background:#fff;
+  padding:10px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  margin-top:20px;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h2,h3{
+  color:#004098;
+  margin-bottom:15px;
+}
+
+h4{
+  margin-bottom:6px;
+}
+
+/* =========================
+   INPUT & LABELS
+========================= */
+input,
+select{
+  width:100%;
+  padding:12px;
+  margin:6px 0;
+  border-radius:8px;
+  border:1px solid #ddd;
+  outline:none;
+}
+
+input:focus,
+select:focus{
+  border-color:#004098;
+}
+
+label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  background:#f8fafc;
+  border:1px solid #dbeafe;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
+  color:#004098;
+  cursor:pointer;
+  transition:.3s;
+}
+
+label:hover{
+  background:#e0ecff;
+  border-color:#004098;
+  transform:translateY(-1px);
+}
+
+label input{
+  width:auto;
+  margin:0;
+  transform:scale(1.2);
+  accent-color:#004098;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button{
+  font-weight: bold;
+  max-width: 120%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#004098;
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  background:#002f71;
+}
+
+/* BUTTON VARIANTS */
+.btn-red{
+  background:transparent;
+  color:#ef4444;
+  border:2px solid #ef4444;
+}
+
+.btn-red:hover{
+  background:#ef4444;
+  color:white;
+}
+
+.btn-secondary{
+  background:#10b981;
+}
+
+.btn-secondary:hover{
+  background:#059669;
+}
+
+.btn-third{
+  background:#ffd600;
+  color:black;
+}
+
+.btn-third:hover{
+  background:#c5a400;
+  color:white;
+}
+
+.btn-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-left: 5px;
+}
+
+.icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+/* =========================
+   NAVBAR (DESKTOP)
+========================= */
+.navbar{
+  margin-top:10px;
+  padding:16px 30px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(15px);
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#004098;
+  font-size:22px;
+  font-weight:800;
+}
+
+.logo{
+  width:50px;
+}
+
+nav{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+nav a{
+  text-decoration:none;
+  color:#555;
+  font-weight:600;
+  padding:10px 14px;
+  border-radius:8px;
+  transition:.3s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.active {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+nav a:hover,
+nav .active{
+  background:#eef4ff;
+  color:#004098;
+}
+
+.navbar .btn-red{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  border:none;
+  border-radius:6px;
+  background:#ef4444;
+  color:white;
+  cursor:pointer;
+}
+
+.navbar .btn-red:hover{
+  background:#dc2626;
+}
+
+.action-row{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+
+.action-row button{
+  flex:1;
+}
+
+/* =========================
+   TOOLBAR
+========================= */
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+}
+
+.toolbar select{
+  min-width:180px;
+  width:auto;
+  padding:10px 14px;
+  border:1px solid #dbeafe;
+  border-radius:10px;
+  background:#f8fafc;
+  color:#004098;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.toolbar select:hover{
+  background:#e0ecff;
+  border-color:#004098;
+}
+
+.toolbar select:focus{
+  outline:none;
+  background:#e0ecff;
+  border-color:#004098;
+  box-shadow:0 0 0 3px rgba(0,64,152,.15);
+}
+
+.toolbar button{
+  min-width:120px;
+}
+
+.paket{
+  display:flex;
+  flex-direction:column;
+  list-style:none;
+  gap:10px;
+  margin:0;
+  padding:0px;
+}
+
+.paket-txt {
+  cursor: default;
+}
+
+li {
+  cursor: default;
+  max-width: 100px;
+  border-radius: 12px;
+  padding: 7px;
+  background-color: #e0ecff;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.form-grid div{
+  display:flex;
+  flex-direction:column;
+}
+
+/* =========================
+   GRID BUKU
+========================= */
+.grid-buku{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:15px;
+  margin-top:15px;
+}
+
+.card-buku{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #eee;
+  transition:.3s;
+}
+
+.card-buku:hover{
+  transform:translateY(-4px);
+  box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.card-buku .info{
+  padding:15px;
+}
+
+.card-buku .info p{
+  font-size:13px;
+  color:gray;
+  margin:4px 0;
+}
+
+/* STATUS COLORS */
+.tersedia{ color:#16a34a; font-weight:bold; }
+.menipis{ color:#f59e0b; font-weight:bold; }
+.kosong{ color:#dc2626; font-weight:bold; }
+
+
+/* =========================
+   TRACKING LIST (FLUID FROM PC TO TABLET)
+========================= */
+.tracking-row {
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  flex-wrap: wrap; /* Fleksibel turun melipat rapi jika layar menyempit */
+  padding: 12px;
+  margin-top: 16px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  transition: .3s;
+}
+
+.tracking-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Otomatis membagi ruang device agar tidak kepanjangan/kependekan */
+.tracking-badge,
+.tracking-item {
+  flex: 1 1 160px; /* Basis ideal 160px, membesar secara proporsional */
+  max-width: 100%;
+  padding: 14px 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.tracking-badge {
+  background: #004098;
+  color: white;
+  flex: 1.2 1 180px; /* Lebih dominan di layar besar */
+}
+
+.tracking-item {
+  background: #f8fafc;
+}
+
+.tracking-item small,
+.tracking-badge small {
+  font-size: 11px;
+  opacity: .7;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tracking-item span,
+.tracking-badge strong {
+  font-size: 14px;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.status { background: #dbeafe; color: #004098; }
+.total { background: #dcfce7; color: #166534; }
+
+
+/* =========================
+   TIMELINE TRACKING CLEAN
+========================= */
+.timeline{
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  margin-top:20px;
+  padding-left:12px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:6px;
+  top:0;
+  width:3px;
+  height:100%;
+  background:linear-gradient(to bottom, #004098, #93c5fd);
+  border-radius:10px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:16px;
+  padding:14px 16px;
+  background:#ffffff;
+  border-left:4px solid #004098;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+  transition:.25s;
+}
+
+.timeline-item:hover{
+  transform:translateX(4px);
+  box-shadow:0 6px 16px rgba(0,64,152,.10);
+}
+
+.timeline-item::before{ display:none; }
+
+.timeline-item::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  left:0;
+  width:100%;
+  height:1px;
+  background:#edf2f7;
+}
+
+.timeline-item:last-child::after{ display:none; }
+
+.track-time{
+  display:inline-block;
+  font-size:12px;
+  font-weight:700;
+  color:#004098;
+  background:#eef4ff;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-bottom:8px;
+}
+
+.track-desc{
+  font-size:14px;
+  color:#374151;
+  line-height:1.5;
+}
+
+
+/* =========================
+   LOGIN VIEW
+========================= */
+.login-bg {
+  background: linear-gradient(lab(100% 0.01 -0.01 / 0.88), (#ffffffe0));
+}
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 320px;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.login-links {
+  margin-top: 10px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-links a {
+  color: #004098;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   TOPBAR & NAVIGATION DASHBOARD
+========================= */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.nav button{
+  flex:1;
+}
+
+/* MODERN BUTTON CARDS */
+.nth-1{ background:#004098; width: 100%; margin-top: 5px; }
+.nth-1:hover{ background:#002f71; }
+.nth-2{ background:#ffd600; color:black; }
+.nth-2:hover{ background:#c5a400; color:white; }
+.nth-3{ background:#004098; }
+.nth-3:hover{ background:#002f71; }
+.nth-4{ background:#ffd600; color:black; }
+.nth-4:hover{ background:#c5a400; color:white; }
+
+
+/* =========================
+   DASHBOARD MODERN PAGE ONLY
+========================= */
+body.dashboard-page .container{
+  max-width:1300px;
+}
+
+body.dashboard-page .card:first-child{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(12px);
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 15px 40px rgba(0,64,152,.12);
+}
+
+body.dashboard-page #greeting{
+  font-size:34px;
+  font-weight:800;
+  color:#004098;
+  margin-bottom:8px;
+}
+
+body.dashboard-page .topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+
+body.dashboard-page .nav{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+body.dashboard-page .nav button{
+  min-height:180px;
+  border-radius:22px;
+  padding:30px;
+  font-size:20px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  transition:.3s;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+body.dashboard-page .nav button:hover{
+  transform:translateY(-8px);
+}
+
+body.dashboard-page .nth-1{ background:linear-gradient(135deg,#004098,#2563eb); }
+body.dashboard-page .nth-2{ background:linear-gradient(135deg,#ffd600,#f59e0b); color:black; }
+body.dashboard-page .nth-3{ background:linear-gradient(135deg,#10b981,#059669); }
+
+
+/* =========================
+   RESPONSIVE MOBILE & TABLET (OPTIMIZED)
+========================= */
+@media (max-width: 768px) {
+  /* Container & Card adjustments */
+  .container {
+    width: 85%;
+    padding: 12px;
+  }
+  .card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  /* Typography Mobile */
+  h2, h3 { font-size: 22px; }
+  h4 { font-size: 16px; }
+
+  /* Navbar Mobile Layout */
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar .btn-red {
+    width: 100%;
+  }
+
+  span {
+    font-size: 18px;
+  }
+  /* Form Grid Mobile */
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Toolbar (Filter & Sort Mobile) */
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .toolbar select, 
+  .toolbar button, 
+  .toolbar label {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  /* Action Buttons Mobile */
+  .action-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .action-row button {
+    width: 100%;
+  }
+
+  /* Grid Buku Mobile */
+  .grid-buku {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tracking List Mobile Layout */
+  .tracking-row {
+    flex-direction: column; /* Vertikal rapi khusus di layar HP */
+    gap: 10px;
+    padding: 14px;
+  }
+  .tracking-badge,
+  .tracking-item {
+    width: 100%;
+    flex: unset; /* Mengesampingkan flexbox lebar milik desktop */
+    padding: 12px;
+  }
+
+  /* Timeline Tracking Mobile */
+  .timeline {
+    padding-left: 20px;
+  }
+  .timeline::before {
+    left: 6px;
+  }
+  .timeline-item {
+    padding: 12px;
+  }
+  .timeline-item::before {
+    width: 14px;
+    height: 14px;
+    left: -20px;
+    top: 20px;
+  }
+  .track-time {
+    font-size: 12px;
+  }
+  .track-desc {
+    font-size: 14px;
+  }
+
+  /* Login Card Mobile */
+  .login-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}

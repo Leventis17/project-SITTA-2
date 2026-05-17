@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Dashboard SITTA</title>
+  
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="assets/Logo-UT_FHD.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+  <script src="js/dataBahanAjar.js"></script>
+  
+  
+</head>
+
+<body class="dashboard-page">
+  <div class="dashboard-wrapper">
+
+  <header class="navbar">
+
+    <div class="logo-wrap">
+      <img src="assets/Logo-UT_FHD.png" class="logo">
+      <span>SITTA UT</span>
+    </div>
+
+    <nav>
+      <a href="dashboard.html" class="active">Home</a>
+      <a href="stock.html">Daftar Bahan Ajar</a>
+      <a href="tracking.html">Daftar Tracking</a>
+      <a href="laporan.html">Tracking Pengiriman</a>
+    </nav>
+
+    <button onclick="logout()" class="btn-red">Logout
+      <iconify-icon class="btn-icon" icon="line-md:logout"></iconify-icon>
+    </button>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 id="greeting"></h1>
+    <p>Selamat datang di Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+  </section>
+
+
+  <!-- STATS -->
+  <section class="stats">
+
+    <div class="stat-card blue">
+      <p>Total Stok Buku</p>
+      <h2 id="stokCount">3.141</h2>
+    </div>
+
+    <div class="stat-card yellow">
+      <p>DO Sedang Dikirim</p>
+      <h2 id="doCount">2</h2>
+    </div>
+
+  </section>
+
+
+  <!-- MENU -->
+  <section class="menu-grid">
+
+    <div class="menu-card">
+      <div class="icon">
+        <iconify-icon icon="solar:book-2-bold-duotone"></iconify-icon>
+        <!-- <iconify-icon icon="solar:book-2-bold"></iconify-icon> -->
+         
+      </div>
+
+      <h3>Informasi Bahan Ajar</h3>
+
+      <p>
+        Kelola data stok bahan ajar,
+        update stok dan lokasi rak
+      </p>
+
+      <button onclick="location.href='stock.html'">
+        Buka Menu
+      </button>
+    </div>
+
+
+    <div class="menu-card">
+      <div class="icon">
+        <!-- <iconify-icon icon="solar:delivery-bold-duotone"></iconify-icon> -->
+        <iconify-icon icon="solar:document-text-bold-duotone"></iconify-icon>
+      </div>
+
+      <h3>Data Pengiriman</h3>
+
+      <p>
+        Pantau proses pengiriman
+        delivery order secara realtime
+      </p>
+
+      <button onclick="location.href='tracking.html'">
+        Buka Menu
+      </button>
+    </div>
+
+
+    <div class="menu-card">
+      <div class="icon">
+        <!-- <iconify-icon icon="hugeicons:delivery-box-02"></iconify-icon> -->
+        <iconify-icon icon="iconamoon:delivery-fast-duotone"></iconify-icon>
+      </div>
+
+      <h3>Tracking Pengiriman</h3>
+      <p>Lihat histori dan cetak laporan pengiriman bahan ajar</p>
+
+      <button onclick="location.href='laporan.html'">Buka Menu</button>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- <script src="js/data.js"></script> -->
+<script src="js/script.js"></script>
+<script src="js/data.js"></script>
+
+</body>
+</html>
